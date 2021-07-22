@@ -50,7 +50,7 @@ namespace BubbleBash
 
 
          title.setString("INSTRUCTIONS");
-         text.setString("\n\nYou are given 8*8 board filled with bubbles. \nThe game is played by swaping bubbles in any direction to create sets of 3 or more \nmatching bubbles.\nEach time when you match 3 or more bubbles, you will get 20 points. \nYour time limit is 60 seconds. So score as much as you can.");
+         text.setString("\n\nYou are given 8*8 board filled with bubbles. \nThe game is played by swaping bubbles in any direction to create sets of 3 or more \nmatching bubbles.\nEach time when you match 3 or more bubbles, you will get 20 points. \nYour time is limited. So score as much as you can.");
 
 		 this->_data->assets._music.openFromFile(HELP_STATE_MUSIC_FILEPATH);
 		 this->_data->assets._music.setVolume(70);

@@ -7,7 +7,7 @@
 
 namespace BubbleBash
 {
-    GameState::GameState(GameDataRef data) : _data(data)
+    GameState::GameState(GameDataRef data,int i) : _data(data),level(i)
     {
     }
 
@@ -105,7 +105,7 @@ namespace BubbleBash
     void GameState::Update(float dt)
     {
         time = obj.GetElapsedSeconds();
-        time = TIME_EASY - time;
+        time = TIME_EASY - level*10 - time;
         std::stringstream ss;
         ss << time;
         time_text.setString(ss.str().c_str());

@@ -53,7 +53,7 @@ namespace BubbleBash
     class GameState : public State
     {
     public:
-        GameState(GameDataRef data);
+        GameState(GameDataRef data,int i);
 
         void Init();
 
@@ -78,7 +78,7 @@ namespace BubbleBash
         sf::Text text_score;
 
         
-        int time;
+        int time,level;
 
         std::string string_time;
     };

@@ -66,20 +66,20 @@ namespace BubbleBash
 			{
 				// Switch To Game State (easy level)
 				this->_data->assets._music.stop();
-				this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+				this->_data->machine.AddState(StateRef(new GameState(_data,0)), true);
 			}
 			else if (this->_data->input.IsSpriteClicked(this->_mediumbutton, sf::Mouse::Left, this->_data->window))
 			{
 				// Switch to medium level
 				this->_data->assets._music.stop();
-				std :: cout << "medium level" << std ::endl;
+				this->_data->machine.AddState(StateRef(new GameState(_data,1)), true);
 
 			}
 			else if (this->_data->input.IsSpriteClicked(this->_hardbutton, sf::Mouse::Left, this->_data->window))
 			{
 				// Switch to hard level
 				this->_data->assets._music.stop();
-				std :: cout << "hard level" << std ::endl;
+				this->_data->machine.AddState(StateRef(new GameState(_data,2)), true);
 			}
 			
 			if (event.type == sf::Event::EventType::KeyPressed)

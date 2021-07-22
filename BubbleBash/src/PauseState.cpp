@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include "GameState.hpp"
+#include "LevelState.hpp"
 
 namespace BubbleBash
 {
@@ -50,7 +51,7 @@ namespace BubbleBash
             {
                 this->_data->assets._music.stop();
                 this->_data->assets.PauseOrGame_State.clear();
-                this->_data->machine.AddState(StateRef(new GameState(_data)), true);
+                this->_data->machine.AddState(StateRef(new LevelState(_data)), true);
             }
             else if (this->_data->input.IsSpriteClicked(this->_exitbutton, sf::Mouse::Left, this->_data->window))
             {
