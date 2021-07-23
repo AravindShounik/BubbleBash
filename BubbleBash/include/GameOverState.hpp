@@ -29,6 +29,7 @@ namespace BubbleBash
         sf::Font font;
         
         sf::Text text_score;
+        sf::Text score_text;
 
         sf::Sprite _exitbutton;
     };

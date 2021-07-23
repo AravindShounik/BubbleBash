@@ -36,8 +36,13 @@ namespace BubbleBash
         text_score.setCharacterSize(80);
         text_score.setColor(sf::Color::Yellow);
         text_score.setPosition(200, 155);
-
         text_score.setString("Your score is : ");
+
+        score_text.setFont(font);
+        score_text.setCharacterSize(80);
+        score_text.setColor(sf::Color::Yellow);
+        score_text.setPosition(650, 155);
+        score_text.setString(std::to_string(this->_data->assets.score));
     }
 
     void GameOverState::HandleInput()
@@ -88,6 +93,7 @@ namespace BubbleBash
         this->_data->window.draw(this->_exitbutton);
 
         this->_data->window.draw(text_score);
+        this->_data->window.draw(score_text);
 
         this->_data->window.display();
     }

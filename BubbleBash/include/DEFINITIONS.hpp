@@ -36,12 +36,7 @@
 
 #define GRID_SPRITE_FILEPATH "resources/Images/BackGrounds/Board.png"
 
-#define BLUE_BUBBLE_FILEPATH "resources/Images/Bubbles/blue.png"
-#define GREEN_BUBBLE_FILEPATH "resources/Images/Bubbles/GREEN.png"
-#define PINK_BUBBLE_FILEPATH "resources/Images/Bubbles/pink.png"
-#define RED_BUBBLE_FILEPATH "resources/Images/Bubbles/red.png"
-#define SILVER_BUBBLE_FILEPATH "resources/Images/Bubbles/silver.png"
-#define YELLOW_BUBBLE_FILEPATH "resources/Images/Bubbles/yellow.png"
+#define BUBBLES_FILEPATH "resources/Images/Bubbles/bubbles.png"
 #define TIME_EASY 60
 
 #define STATE_PLAYING 98
