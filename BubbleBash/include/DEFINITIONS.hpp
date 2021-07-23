@@ -6,7 +6,7 @@
 #define SPLASH_STATE_SHOW_TIME 5
 
 #define IITH_CSE_LOGO_FILEPATH "resources/Images/BackGrounds/IITH_CSE_logo.jpg"
-#define SPLASH_STATE_FILEPATH "resources/Images/BackGrounds/splashscreenbackground.jpg"
+#define SPLASH_STATE_FILEPATH "resources/Images/BackGrounds/splashscreenbackground.png"
 #define MAIN_MENU_STATE_FILEPATH "resources/Images/BackGrounds/menu state background.jpg"
 #define HELP_STATE_FILEPATH "resources/Images/BackGrounds/help state background.jpg"
 #define GAME_WINDOW_STATE_FILEPATH "resources/Images/BackGrounds/Gameplay.jpg"
@@ -39,8 +39,3 @@
 #define BUBBLES_FILEPATH "resources/Images/Bubbles/bubbles.png"
 #define TIME_EASY 60
 
-#define STATE_PLAYING 98
-#define STATE_PAUSED 97
-#define STATE_WON 96
-#define STATE_LOSE 95
-#define STATE_MATCHING_BUBBLE 94
