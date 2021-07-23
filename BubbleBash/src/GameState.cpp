@@ -152,8 +152,7 @@ namespace BubbleBash
         processEvents();
         update();
         render();
-
-        this->_data->window.display();
+        
     }
 
     void GameState::swap(piece p1, piece p2)
