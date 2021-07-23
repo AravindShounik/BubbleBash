@@ -22,6 +22,7 @@ namespace BubbleBash
         sf::Music _music;
 
         std::vector<int> PauseOrGame_State;
+        int score;
 
     private:
         std::map<std::string,sf::Texture> _textures;

@@ -12,6 +12,7 @@
 #define GAME_WINDOW_STATE_FILEPATH "resources/Images/BackGrounds/Gameplay.jpg"
 #define PAUSE_BACKGROUND_FILEPATH "resources/Images/BackGrounds/Pausebackground.jpg"
 #define LEVEL_STATE_FILEPATH "resources/Images/BackGrounds/level state background.jpg"
+#define GAME_OVER_STATE_FILEPATH "resources/Images/BackGrounds/End_Game_State_background.jpg"
 
 #define SPLASH_STATE_MUSIC_FILEPATH "resources/Audio/Splash_State_music.ogg"
 #define MAIN_MENU_STATE_MUSIC_FILEPATH "resources/Audio/Main_menu_State_music.ogg"
@@ -31,7 +32,7 @@
 #define EASY_BUTTON_FILEPATH "resources/Images/buttons/easybutton.png"
 #define MEDIUM_BUTTON_FILEPATH "resources/Images/buttons/mediumbutton.png"
 #define HARD_BUTTON_FILEPATH "resources/Images/buttons/hardbutton.png"
-
+#define PLAY_AGAIN_BUTTON_FILEPATH "resources/Images/buttons/playagain.png"
 
 #define GRID_SPRITE_FILEPATH "resources/Images/BackGrounds/Board.png"
 

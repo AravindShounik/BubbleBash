@@ -1,6 +1,7 @@
 #include "GameState.hpp"
 #include "HelpState.hpp"
 #include "PauseState.hpp"
+#include "GameOverState.hpp"
 #include <iostream>
 #include <sstream>
 
@@ -116,9 +117,9 @@ namespace BubbleBash
             this->_data->assets.PauseOrGame_State.pop_back();
         }
         
-        if (time < 0)
+        if (time < 1)
         {
-            std::cout << "Go to EndGame state" << std::endl;
+            this->_data->machine.AddState(StateRef(new GameOverState(_data)), true);
         }
 
     }
