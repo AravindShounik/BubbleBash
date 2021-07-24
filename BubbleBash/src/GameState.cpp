@@ -437,8 +437,7 @@ namespace BubbleBash
                             //4 bubbles
                             special = true;
                             
-                            //nej.setPosition(grid[i][j].x-0.8,grid[i][j].y-0.8);
-                            for (int n = 1; n <= 8; n++)
+                        for (int n = 1; n <= 8; n++)
                             {
                                 grid[n][j].kind = rand() % 7;
                                 grid[n][j].y = -ts * l++;
@@ -458,8 +457,7 @@ namespace BubbleBash
                                 this->_data->assets.score += 20;
                             //4 bubbles
                             special = true;
-                            //nej.setPosition(grid[i][j].x-0.8, grid[i][j].y-0.8);
-                            for (int n = 1; n <= 8; n++)
+                          for (int n = 1; n <= 8; n++)
                             {
                                 grid[i][n].kind = rand() % 7;
                                 grid[i][n].y = -ts * l++;
