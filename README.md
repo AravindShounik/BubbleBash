@@ -79,8 +79,7 @@ project folder :
 ```bash
   make
 ```
-Now, you can simply run the *executable* 
-from *bin* or we can use the following code 
+Now, you can simply use the following code 
 
 ```bash
 bin/main
