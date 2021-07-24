@@ -1,9 +1,10 @@
 
 
+# Bubbles Bash 3D
 
 
 
-# Bubbles Bash 2D
+
 
 Bubble-Bash is a 2D board game in which player 
 has to match 3 or more bubbles to score within 
@@ -21,6 +22,15 @@ For our project we developed our own Game Engine.
 This Game Engine can used again and again for 
 developing different kinds of games.
 
+
+- [Bubbles Bash 3D](#bubbles-bash-3d)
+  * [Features](#features)
+  * [Installation Required](#installation-required)
+  * [Deployment](#deployment)
+  * [Screenshots](#screenshots)
+  * [Authors](#authors)
+  * [Licenses](#licenses)
+  * [Credits](#credits)
 
 ## Features
 
@@ -75,10 +85,43 @@ from *bin* or we can use the following code
 ```bash
 bin/main
 ```
+## Screenshots
 
-## Guide through
 
-Some screenshots of all the different states/ screens will be here with some info for guidance. 
+Welcome Screen:
+
+
+![Splash State](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/Splash%20screen.jpeg)
+
+Main Menu:
+
+
+![Main Menu](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/Main%20Menu%20State.jpeg)
+
+Level State:
+
+
+![Level](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/Level%20State.jpeg)
+
+Game-Play State:
+
+
+![Play](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/Game%20Play.jpeg)
+
+Help State:
+
+
+![Help](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/Help%20State.jpeg)
+
+Pause State:
+
+
+![Pause](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/Pause%20State.jpeg)
+
+Game Over state:
+
+
+![Over](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/Screenshots/GameOver.jpeg)
 
   
 ## Authors
@@ -102,18 +145,41 @@ Group 12 members are
 We have used some free to use music and backgroud.
 
 
-All the *music* files are taken from [Chosic](https://www.chosic.com/) and are registered under *Creative Commons* license.
+All the **Music** files are taken from [chosic.com](https://www.chosic.com/) and are registered under *[Creative Commons](https://creativecommons.org/about/cclicenses/)* license.
 
-Links to music used:
+Links to music used in:
 
-1. [Game Play](https://www.chosic.com/download-audio/?t=28349&tag=Guitar)
+1. [Game Play and Pause State](https://www.chosic.com/download-audio/?t=28349&tag=Guitar)
 
-2. [Menu Screen]()
+    Title: Gypsy Doo Wop
 
-3. [Logo screen]()
+    Artist: [John Bartman](https://www.chosic.com/free-music/all/?keyword=John%20Bartmann&artist) 
 
-4. [Level screen]()
+2. [Menu State,Level State,Help state,etc..](https://www.chosic.com/download-audio/?t=25942&tag=Bright)
+   
+   Title: Cheer Up!
 
-Backgrounds are......
+   Artist: [Keys of Moon](https://www.chosic.com/free-music/all/?keyword=Keys%20of%20Moon&artist)
+   
 
 
+  Following **Backgrounds** are taken from [unsplash.com](https://unsplash.com/) under their [license](https://unsplash.com/license).
+    
+  1. [Splash Screen](https://unsplash.com/photos/qEswHvOmi1c)
+  
+  2. [Menu State](https://unsplash.com/photos/p-NQlmGvFC8)
+  
+  3. [Level State](https://unsplash.com/photos/0YQz7M2fcYY)
+   
+  4. [Help State](https://unsplash.com/photos/VdFkSO3uePI)
+   
+  5. [Game-over State](https://unsplash.com/photos/ilfsT5p_qvA)
+
+  For Game-State and Pause state, [background](https://www.behance.net/gallery/46601081/Background-for-mobile-game/modules/278262885) is taken from [behance.net](https://www.behance.net/), under *[Creative commons](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US)* license.
+
+  Artist: [Boris Tovmasyan](https://www.behance.net/rab8bit).
+
+
+
+  All the **Bubbles** and **Buttons** used in the game are made by our team members using *Adobe Photoshop*.
+   
