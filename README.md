@@ -1,6 +1,6 @@
 
 
-# Bubbles Bash 3D
+# Bubbles Bash 2D
 
 
 
@@ -19,11 +19,11 @@ Development Fundamentals* course at [IIT Hyderabad](https://iith.ac.in/)
 for academic year 2020-2021. 
 
 For our project we developed our own Game Engine. 
-This Game Engine can used again and again for 
+This Game Engine can be used again and again for 
 developing different kinds of games.
 
 
-- [Bubbles Bash 3D](#bubbles-bash-3d)
+- [Bubbles Bash 2D](#bubbles-bash-2d)
   * [Features](#features)
   * [Installation Required](#installation-required)
   * [Deployment](#deployment)
