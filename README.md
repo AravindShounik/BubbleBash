@@ -160,6 +160,15 @@ Links to music used in:
 
    Artist: [Keys of Moon](https://www.chosic.com/free-music/all/?keyword=Keys%20of%20Moon&artist)
    
+   Attribution as instructed:
+   
+   Cheer Up! by Keys of Moon | https://soundcloud.com/keysofmoon
+   
+   Music promoted by https://www.chosic.com
+   
+   Attribution 4.0 International (CC BY 4.0)
+   https://creativecommons.org/licenses/by/4.0/
+   
 
 
   Following **Backgrounds** are taken from [unsplash.com](https://unsplash.com/) under their [license](https://unsplash.com/license).
