@@ -94,12 +94,12 @@ namespace BubbleBash
 		}
 	}
 
-	void LevelState::Update(float dt)
+	void LevelState::Update([[maybe_unused]] float dt)
 	{
 
 	}
 
-	void LevelState::Draw(float dt)
+	void LevelState::Draw([[maybe_unused]] float dt)
 	{
 		this->_data->window.clear(sf::Color::Blue);
 

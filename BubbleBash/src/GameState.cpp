@@ -91,16 +91,7 @@ namespace BubbleBash
                 this->_data->window.close();
             }
 
-            else if (this->_data->input.IsSpriteClicked(this->_pausebutton, sf::Mouse::Left, this->_data->window))
-            {
-                obj.Pause();
-                this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
-            }
-            else if (this->_data->input.IsSpriteClicked(this->_helpbutton, sf::Mouse::Left, this->_data->window))
-            {
-                this->_data->assets._music.stop();
-                this->_data->machine.AddState(StateRef(new HelpState(_data)), true);
-            }
+            //Input for Pause & Help are written in Update function.
 
             if (event.type == sf::Event::EventType::KeyPressed)
             {
@@ -114,13 +105,24 @@ namespace BubbleBash
         }
     }
 
-    void GameState::Update(float dt)
+    void GameState::Update([[maybe_unused]] float dt)
     {
         time = obj.GetElapsedSeconds();
         time = TIME_EASY - level * 10 - time;
         std::stringstream ss;
         ss << time;
         time_text.setString(ss.str().c_str());
+
+        if (this->_data->input.IsSpriteClicked(this->_pausebutton, sf::Mouse::Left, this->_data->window))
+        {
+            obj.Pause();
+            this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+        }
+        else if (this->_data->input.IsSpriteClicked(this->_helpbutton, sf::Mouse::Left, this->_data->window))
+        {
+            this->_data->assets._music.stop();
+            this->_data->machine.AddState(StateRef(new HelpState(_data)), true);
+        }
 
         if (this->_data->assets.PauseOrGame_State.back() == 1)
         {
@@ -134,7 +136,7 @@ namespace BubbleBash
         }
     }
 
-    void GameState::Draw(float dt)
+    void GameState::Draw([[maybe_unused]] float dt)
     {
         this->_data->window.clear(sf::Color::Black);
 
@@ -263,8 +265,8 @@ namespace BubbleBash
                     }
                 }
 
-                return 1;
             }
+        return 1;
     }
 
     void GameState::processEvents()
@@ -276,7 +278,7 @@ namespace BubbleBash
                 this->_data->window.close();
 
             if (e.type == sf::Event::MouseButtonPressed)
-                if (e.key.code == sf::Mouse::Left)
+                if (e.mouseButton.button == sf::Mouse::Left)
                 {
                     if (!isSwap && !isMoving)
                         click++;

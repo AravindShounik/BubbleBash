@@ -95,12 +95,12 @@ namespace BubbleBash
 		}
 	}
 
-	void HelpState::Update(float dt)
+	void HelpState::Update([[maybe_unused]] float dt)
 	{
 
 	}
 
-	void HelpState::Draw(float dt)
+	void HelpState::Draw([[maybe_unused]] float dt)
 	{
 		this->_data->window.clear(sf::Color::Blue);
 

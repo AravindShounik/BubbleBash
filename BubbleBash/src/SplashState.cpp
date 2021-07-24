@@ -43,28 +43,28 @@ namespace BubbleBash
         }
     }
 
-   void SplashState::Update(float dt)
-   {
-      if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
-      {
-	   // Switch To Main Menu
-       this->_data->assets._music.stop();
-       this->_data->machine.AddState(StateRef(new MainmenuState(_data)), true);
-      }
+    void SplashState::Update([[maybe_unused]] float dt)
+    {
+        if (this->_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
+        {
+            // Switch To Main Menu
+            this->_data->assets._music.stop();
+            this->_data->machine.AddState(StateRef(new MainmenuState(_data)), true);
+        }
    }
 
-  void SplashState::Draw(float dt)
-  {
-     this->_data->window.clear(sf::Color::Black);
+   void SplashState::Draw([[maybe_unused]] float dt)
+   {
+       this->_data->window.clear(sf::Color::Black);
 
-     this->_data->window.draw(_logo);
+       this->_data->window.draw(_logo);
 
-     if (this->_clock.getElapsedTime().asSeconds() >= 2)
-     {
-         this->_data->window.draw(_background);
-     }
+       if (this->_clock.getElapsedTime().asSeconds() >= 2)
+       {
+           this->_data->window.draw(_background);
+       }
 
-     this->_data->window.display();
+       this->_data->window.display();
   }
 }
 

@@ -1,3 +1,4 @@
+
 #include "GameOverState.hpp"
 #include "LevelState.hpp"
 #include <iostream>
@@ -80,11 +81,11 @@ namespace BubbleBash
         }
     }
 
-    void GameOverState::Update(float dt)
+    void GameOverState::Update([[maybe_unused]] float dt)
     {
     }
 
-    void GameOverState::Draw(float dt)
+    void GameOverState::Draw([[maybe_unused]] float dt)
     {
         this->_data->window.clear(sf::Color::Black);
 

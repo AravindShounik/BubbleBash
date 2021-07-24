@@ -71,11 +71,11 @@ namespace BubbleBash
         }
     }
 
-    void PauseState::Update(float dt)
+    void PauseState::Update([[maybe_unused]] float dt)
     {
     }
 
-    void PauseState::Draw(float dt)
+    void PauseState::Draw([[maybe_unused]] float dt)
     {
         this->_data->window.clear(sf::Color::Red);
 

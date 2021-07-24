@@ -76,12 +76,12 @@ namespace BubbleBash
 		}
 	}
 
-	void MainmenuState::Update(float dt)
+	void MainmenuState::Update([[maybe_unused]] float dt)
 	{
 
 	}
 
-	void MainmenuState::Draw(float dt)
+	void MainmenuState::Draw([[maybe_unused]] float dt)
 	{
 		this->_data->window.clear(sf::Color(255, 65, 31));
 
