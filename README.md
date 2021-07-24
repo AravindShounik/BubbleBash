@@ -141,7 +141,7 @@ Group 12 members are
   [GNU GENERAL PUBLIC LICENSE](https://github.com/IITH-CS1023/cs1023-sdf-project-team-12/blob/main/LICENSE )
 
 ## Credits
-We have used some free to use music and backgroud.
+We have used some "free-to-use" music audios and backgroud images.
 
 
 All the **Music** files are taken from [chosic.com](https://www.chosic.com/) and are registered under *[Creative Commons](https://creativecommons.org/about/cclicenses/)* license.
