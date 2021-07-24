@@ -10,10 +10,12 @@ namespace BubbleBash
     GameState::GameState(GameDataRef data, int i) : _data(data), level(i)
     {
 
+       // initialize the grid
+
         for (int i = 1; i <= 8; i++)
             for (int j = 1; j <= 8; j++)
             {
-                grid[i][j].kind = rand() % 7;
+                grid[i][j].kind = rand() % 7; // generate random bubbles
                 grid[i][j].col = j;
                 grid[i][j].row = i;
                 grid[i][j].x = j * ts;
@@ -91,16 +93,7 @@ namespace BubbleBash
                 this->_data->window.close();
             }
 
-            else if (this->_data->input.IsSpriteClicked(this->_pausebutton, sf::Mouse::Left, this->_data->window))
-            {
-                obj.Pause();
-                this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
-            }
-            else if (this->_data->input.IsSpriteClicked(this->_helpbutton, sf::Mouse::Left, this->_data->window))
-            {
-                this->_data->assets._music.stop();
-                this->_data->machine.AddState(StateRef(new HelpState(_data)), true);
-            }
+            //Input for Pause & Help are written in Update function.
 
             if (event.type == sf::Event::EventType::KeyPressed)
             {
@@ -114,13 +107,24 @@ namespace BubbleBash
         }
     }
 
-    void GameState::Update(float dt)
+    void GameState::Update([[maybe_unused]] float dt)
     {
         time = obj.GetElapsedSeconds();
         time = TIME_EASY - level * 10 - time;
         std::stringstream ss;
         ss << time;
         time_text.setString(ss.str().c_str());
+
+        if (this->_data->input.IsSpriteClicked(this->_pausebutton, sf::Mouse::Left, this->_data->window))
+        {
+            obj.Pause();
+            this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
+        }
+        else if (this->_data->input.IsSpriteClicked(this->_helpbutton, sf::Mouse::Left, this->_data->window))
+        {
+            this->_data->assets._music.stop();
+            this->_data->machine.AddState(StateRef(new HelpState(_data)), true);
+        }
 
         if (this->_data->assets.PauseOrGame_State.back() == 1)
         {
@@ -134,7 +138,7 @@ namespace BubbleBash
         }
     }
 
-    void GameState::Draw(float dt)
+    void GameState::Draw([[maybe_unused]] float dt)
     {
         this->_data->window.clear(sf::Color::Black);
 
@@ -155,18 +159,15 @@ namespace BubbleBash
         
     }
 
-    void GameState::swap(piece p1, piece p2)
+    void GameState::swap(piece p1, piece p2) // the "swap" method to swap two parts
     {
-        int aux1 = p1.row;
-        p1.row = p2.row;
-        p2.row = aux1;
-        int aux2 = p1.col;
-        p1.col = p2.col;
-        p2.col = aux2;
-        grid[p1.row][p1.col] = p1;
-        grid[p2.row][p2.col] = p2;
+        std::swap(p1.col,p2.col);
+        std::swap(p1.row,p2.row);
+
+        grid[p1.row][p1.col]=p1;
+        grid[p2.row][p2.col]=p2;
     }
-    int GameState::NoMoreMoves(piece grid[10][10])
+    int GameState::NoMoreMoves(piece grid[10][10]) // the method which indicates if there are no other possible combinations
     {
         int i, j;
 
@@ -263,8 +264,8 @@ namespace BubbleBash
                     }
                 }
 
-                return 1;
             }
+        return 1;
     }
 
     void GameState::processEvents()
@@ -275,15 +276,17 @@ namespace BubbleBash
             if (e.type == sf::Event::Closed)
                 this->_data->window.close();
 
+           // detection of mouse clicks
             if (e.type == sf::Event::MouseButtonPressed)
-                if (e.key.code == sf::Mouse::Left)
+                if (e.mouseButton.button == sf::Mouse::Left)
                 {
                     if (!isSwap && !isMoving)
                         click++;
-                    pos = sf::Mouse::getPosition(this->_data->window) - offset;
+                    pos = sf::Mouse::getPosition(this->_data->window) - offset; // pos contains the left click position of the mouse
                 }
         }
 
+        // creation of the animation
         isMoving = false;
         for (int i = 1; i <= 8; i++)
             for (int j = 1; j <= 8; j++)
@@ -302,7 +305,8 @@ namespace BubbleBash
                 if (dx || dy)
                     isMoving = 1;
             }
-
+       
+     //removing the animation
         if (!isMoving)
             for (int i = 1; i <= 8; i++)
                 for (int j = 1; j <= 8; j++)
@@ -312,21 +316,22 @@ namespace BubbleBash
                             grid[i][j].alpha -= 10;
                             isMoving = true;
                         }
-
-        int somme = 0;
+        // declaration of sum variable which helps to do the second swap
+        int sum = 0;
         for (int i = 1; i <= 8; i++)
             for (int j = 1; j <= 8; j++)
-                somme += grid[i][j].match;
+                sum += grid[i][j].match;
 
+        // the second swap if it is not the right combination
         if (isSwap && !isMoving)
         {
-            if (somme == 0)
+            if (sum == 0)
                 if (special == false)
                     swap(grid[y0][x0], grid[y][x]);
             isSwap = 0;
             special = false;
         }
-
+        // no more moves (update the grid if there are no other combinations)
         int l = 0;
         int a = NoMoreMoves(grid);
         if (a == 1)
@@ -344,7 +349,7 @@ namespace BubbleBash
     void GameState::update()
     {
         if (!isMoving)
-        {
+        {     // any empty box is replaced by the content of the box above it
             for (int i = 8; i > 0; i--)
                 for (int j = 1; j <= 8; j++)
                     if (grid[i][j].match)
@@ -354,7 +359,7 @@ namespace BubbleBash
                                 swap(grid[n][j], grid[i][j]);
                                 break;
                             };
-
+               // The empty boxes in the top row of the grid are replaced by randomly inserted candies.
             for (int j = 1; j <= 8; j++)
                 for (int i = 8, n = 0; i > 0; i--)
                     if (grid[i][j].match)
@@ -369,7 +374,7 @@ namespace BubbleBash
 
     void GameState::render()
     {
-
+        // mouse clicks
         if (click == 1)
         {
             x0 = pos.x / ts + 1;
@@ -379,7 +384,8 @@ namespace BubbleBash
         {
             x = pos.x / ts + 1;
             y = pos.y / ts + 1;
-            if (abs(x - x0) + abs(y - y0) == 1)
+            if (abs(x - x0) + abs(y - y0) == 1) // find out if the two parts to be exchanged are adjacent
+         
             {
                 swap(grid[y0][x0], grid[y][x]);
                 isSwap = 1;
@@ -402,26 +408,27 @@ namespace BubbleBash
 
         text.setString(std::to_string(this->_data->assets.score));
 
+        // eliminate candies from a game grid by combining 3 to 5 bubbles of the same category
         for (int i = 1; i <= 8; i++)
             for (int j = 1; j <= 8; j++)
             {
-
+                 // combination of 3 vertical bubbles
                 if ((grid[i][j].kind == grid[i + 1][j].kind) && (grid[i][j].kind == grid[i - 1][j].kind))
                 {
                     special = false;
                     if (isMoving == false)
-                        this->_data->assets.score += 10;
+                        this->_data->assets.score += 20;
                     for (int n = -1; n <= 1; n++)
                     {
                         grid[i + n][j].match++;
                     }
                 }
-
+                // combination of 3 horizontal bubbles
                 if ((grid[i][j].kind == grid[i][j + 1].kind) && (grid[i][j].kind == grid[i][j - 1].kind))
                 {
                     special = false;
                     if (isMoving == false)
-                        this->_data->assets.score += 10;
+                        this->_data->assets.score += 20;
                     for (int n = -1; n <= 1; n++)
                         grid[i][j + n].match++;
                 }
@@ -433,8 +440,8 @@ namespace BubbleBash
                         {
                             int l = 0;
                             if (isMoving == false)
-                                this->_data->assets.score += 20;
-                            //4 bubbles
+                                this->_data->assets.score += 25;
+                            //4 bubbles verical
                             special = true;
                             
                         for (int n = 1; n <= 8; n++)
@@ -454,8 +461,8 @@ namespace BubbleBash
                         {
                             int l = 0;
                             if (isMoving == false)
-                                this->_data->assets.score += 20;
-                            //4 bubbles
+                                this->_data->assets.score += 25;
+                            //4 bubbles horizontal
                             special = true;
                           for (int n = 1; n <= 8; n++)
                             {
@@ -477,7 +484,7 @@ namespace BubbleBash
                             special = true;
                             if (isMoving == false)
                                 this->_data->assets.score += 30;
-                            //5 bubbles
+                            //5 bubbles vertical
                             piece pp = grid[i][j];
                             for (int n = 1; n <= 8; n++)
                                 for (int m = 1; m <= 8; m++)
@@ -503,7 +510,7 @@ namespace BubbleBash
                             if (isMoving == false)
                                 this->_data->assets.score += 30;
                             int l = 0;
-                            //5 bubbles
+                            //5 bubbles horizontal
                             piece pp = grid[i][j];
                             for (int n = 1; n <= 8; n++)
                                 for (int m = 1; m <= 8; m++)
@@ -519,14 +526,14 @@ namespace BubbleBash
                                 }
                         }
                     }
-
+                    // combination of the letter L of bubbles
                 if ((grid[i][j].kind == grid[i + 1][j].kind) && (grid[i][j].kind == grid[i + 2][j].kind) && (grid[i][j].kind == grid[i][j + 1].kind) && (grid[i][j].kind == grid[i][j + 2].kind))
                 {
                     int l = 0;
                     special = true;
                     if (isMoving == false)
                         this->_data->assets.score += 25;
-                    for (int n = i; n <= i + 2; n++)
+                    for (int n = i; n <= i + 2; n++)  // eliminate all the bubble square
                         for (int m = j; m <= j + 2; m++)
                         {
                             grid[n][m].kind = rand() % 7;
@@ -642,7 +649,7 @@ namespace BubbleBash
                         };
                 }
             }
-
+          //designing the images
         for (int i = 1; i <= 8; i++)
             for (int j = 1; j <= 8; j++)
             {
