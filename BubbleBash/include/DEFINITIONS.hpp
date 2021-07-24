@@ -20,8 +20,6 @@
 #define HELP_STATE_MUSIC_FILEPATH "resources/Audio/Help_State_music.ogg"
 
 #define MARKER_FONT_FILEPATH "resources/fonts/Marker Felt.ttf"
-#define PACIFICO_FONT_FILEPATH "resources/fonts/Pacifico-Regular.ttf"
-#define ARIAL_FONT_FILEPATH "resources/fonts/arial.ttf"
 
 #define PLAY_BUTTON_FILEPATH "resources/Images/buttons/playbutton.png"
 #define HELP_BUTTON_FILEPATH "resources/Images/buttons/helpbutton.png"
